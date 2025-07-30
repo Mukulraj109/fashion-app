@@ -47,7 +47,8 @@ router.get('/fashion/categories', async (req, res) => {
   }
 });
 
-// GET /api/products/list
+
+
 
 router.get('/list', async (req, res) => {
   try {
