@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Gift, Sparkles } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -6,15 +6,18 @@ import { useAuth } from '../context/AuthContext';
 const ConfirmationPage = () => {
   const navigate = useNavigate();
   const { updateWallet } = useAuth();
+  const updated = useRef(false); // Prevent double updates
 
   useEffect(() => {
- 
-    updateWallet(220);
+    if (!updated.current) {
+      updateWallet(220);
+      updated.current = true;
+    }
   }, [updateWallet]);
 
   return (
     <div className="pb-20 bg-gradient-to-br from-purple-100 to-pink-100 min-h-screen">
- 
+      {/* Header */}
       <div className="bg-transparent px-4 pt-12 pb-4">
         <div className="flex items-center space-x-4">
           <button onClick={() => navigate('/')} className="p-2">
@@ -24,9 +27,10 @@ const ConfirmationPage = () => {
         </div>
       </div>
 
+      {/* Body */}
       <div className="px-4 py-8">
         <div className="text-center mb-8">
-         
+          {/* Icon Badge */}
           <div className="relative mx-auto w-32 h-32 mb-6">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
             <div className="relative bg-white rounded-full w-full h-full flex items-center justify-center shadow-lg">
@@ -39,7 +43,7 @@ const ConfirmationPage = () => {
             </div>
           </div>
 
-          
+          {/* Cashback Info Card */}
           <div className="bg-white rounded-3xl p-8 shadow-xl mb-6">
             <div className="mb-6">
               <h2 className="text-3xl font-bold text-purple-600 mb-2">10%</h2>
@@ -47,7 +51,6 @@ const ConfirmationPage = () => {
               <p className="text-gray-600">Cashback successfully credited to your wallet!</p>
             </div>
 
-          
             <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl p-6 mb-6">
               <div className="flex items-center justify-center space-x-2">
                 <Gift size={24} />
@@ -56,7 +59,7 @@ const ConfirmationPage = () => {
               <p className="text-center mt-2 opacity-90">Added to your wallet</p>
             </div>
 
-          
+            {/* Confetti Emojis */}
             <div className="flex justify-center space-x-4 mb-6">
               <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center animate-bounce">
                 <span className="text-yellow-700">🎉</span>
@@ -74,7 +77,7 @@ const ConfirmationPage = () => {
             </p>
           </div>
 
-          
+          {/* Action Buttons */}
           <div className="space-y-3">
             <button 
               onClick={() => navigate('/')}
@@ -90,7 +93,7 @@ const ConfirmationPage = () => {
             </button>
           </div>
 
-         
+          {/* Share Section */}
           <div className="mt-8 p-4 bg-white/50 rounded-2xl">
             <p className="text-gray-700 mb-3">Share your achievement</p>
             <div className="flex justify-center space-x-4">
