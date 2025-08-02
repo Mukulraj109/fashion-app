@@ -10,6 +10,7 @@ import ReviewPage from './pages/ReviewPage';
 import ConfirmationPage from './pages/ConfirmationPage';
 import Navigation from './components/Navigation';
 import { Wallet } from './pages/Wallet';
+import CheckoutPage from './pages/CheckoutPage';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/review/:id" element={<ReviewPage />} />
                 <Route path="/confirmation" element={<ConfirmationPage />} />
                 <Route path="/wallet" element={<Wallet/>} />
+                 <Route path="/checkout" element={<CheckoutPage/>} />
               </Routes>
               <Navigation />
             </div>

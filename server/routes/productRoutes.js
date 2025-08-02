@@ -52,7 +52,9 @@ router.get('/fashion/categories', async (req, res) => {
 
 router.get('/list', async (req, res) => {
   try {
+    
     const { category, filter } = req.query;
+
     const products = await Product.find(filter);
 
     console.log(products);

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Home, Search, ShoppingBag, User, Heart } from 'lucide-react';
 

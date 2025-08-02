@@ -41,7 +41,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   });
 
   const login = (email: string, password: string) => {
-    // Mock login logic
+   
     console.log('Logging in with:', email, password);
   };
 
@@ -52,7 +52,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const updateWallet = (amount: number) => {
     if (user) {
       setUser({ ...user, wallet: user.wallet + amount });
-      // Also update on backend
+     
       userAPI.updateWallet(user.id, amount).catch(console.error);
     }
   };
